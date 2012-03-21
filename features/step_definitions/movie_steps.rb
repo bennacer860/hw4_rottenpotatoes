@@ -14,3 +14,12 @@ Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
 	#compare the director 
 	assert movie.director==arg2
 end
+
+
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
+	#find movie
+	movie=Movie.find_by_title(arg1)
+	#compare the director 
+	assert movie.director==arg2
+end
+

@@ -11,7 +11,7 @@ module NavigationHelpers
   # step definition in web_steps.rb
   #
   def path_to(page_name)
-    puts page_name  
+    #puts page_name  
 
     case page_name
 
@@ -23,8 +23,17 @@ module NavigationHelpers
       #find id
       id=Movie.find_by_title(title).id
       "/movies/#{id}/edit"
-      
-      
+
+    when /^the details page for "Star Wars"/
+      title=page_name[/"([^"]*)"/,1]
+      #find id
+      id=Movie.find_by_title(title).id
+      "/movies/#{id}"  
+
+    when /^the Similar Movies page for "Star Wars"/
+       pending 
+        
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

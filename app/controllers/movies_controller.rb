@@ -58,4 +58,12 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def same_director
+    #find movie with same director
+    @movies = Movie.find_all_by_director(params[:director])
+
+    #@movies=[] if @movie.size==0
+  end
+
+
 end
