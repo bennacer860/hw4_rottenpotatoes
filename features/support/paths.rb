@@ -16,16 +16,16 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/movies'
 
     when /^the edit page/
       title=page_name[/"([^"]*)"/,1]
-      #find id
       id=Movie.find_by_title(title).id
       "/movies/#{id}/edit"
 
-    when /^the details page for "Star Wars"/
-      title=page_name[/"([^"]*)"/,1]
+    when /^the details page for "([^"]*)"$/i
+      puts
+      title= $1 #page_name[/"([^"]*)"/,1]
       #find id
       id=Movie.find_by_title(title).id
       "/movies/#{id}"  

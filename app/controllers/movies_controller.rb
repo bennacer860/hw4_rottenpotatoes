@@ -67,9 +67,9 @@ class MoviesController < ApplicationController
 
 
   def similar_movies
-      puts "id:#{params[:id]}"
+      #puts "id:#{params[:id]}"
       source_movie = Movie.find(params[:id])
-      puts source_movie
+      #puts source_movie
       director = source_movie.director
       if director == ""
         flash[:notice] = "'#{source_movie.title}' has no director info."
