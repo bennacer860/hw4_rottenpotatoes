@@ -59,4 +59,6 @@ Rottenpotatoes::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
     match 'movies/same_director/:director' => 'movies#same_director', :as=>"same_director"
 
+    match 'movies/similar_movies/:id' => 'movies#similar_movies', :as=>"similar_movies"
+
 end

@@ -30,9 +30,10 @@ module NavigationHelpers
       id=Movie.find_by_title(title).id
       "/movies/#{id}"  
 
-    when /^the Similar Movies page for "Star Wars"/
-       pending 
-        
+    when /^the Similar Movies page for "([^"]*)"$/i
+      '/movies/similar_movies/' + Movie.find_by_title($1).id.to_s
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

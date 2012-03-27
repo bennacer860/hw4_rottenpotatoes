@@ -66,4 +66,16 @@ class MoviesController < ApplicationController
   end
 
 
+  def similar_movies
+      puts "id:#{params[:id]}"
+      source_movie = Movie.find(params[:id])
+      puts source_movie
+      director = source_movie.director
+      if director == ""
+        flash[:notice] = "'#{source_movie.title}' has no director info."
+        redirect_to movies_path
+      end
+      @movies = Movie.find_all_by_director(director)
+  end
+
 end
